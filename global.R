@@ -52,16 +52,16 @@ enableBookmarking(store = "url")
 # Highcharts --------------------------------------------------------------
 
 hc_export_menu <- list(
-  list(text="Download PNG image",
+  list(text="Descargar PNG",
        onclick=JS("function () { 
                   this.exportChart({ type: 'image/png' }); }")),
-  list(text="Download JPEG image",
+  list(text="Descargar JPEG",
        onclick=JS("function () { 
                   this.exportChart({ type: 'image/jpeg' }); }")),
-  list(text="Download SVG vector image",
+  list(text="Descargar SVG",
        onclick=JS("function () { 
                   this.exportChart({ type: 'image/svg+xml' }); }")),
-  list(text="Download PDF document",
+  list(text="Descargar PDF",
        onclick=JS("function () { 
                   this.exportChart({ type: 'application/pdf' }); }"))
 )

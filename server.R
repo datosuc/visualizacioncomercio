@@ -47,19 +47,7 @@ shinyServer(
     })
     
     # Data --------------------------------------------------------------------
-    
-    text_add_the <- reactive({
-      if (substr(p_name(), 1, 6) == "United" | substr(p_name(), 1, 3) == "USA") {
-        "the "
-      } else {
-        ""
-      }
-    })
-    
-    title <- eventReactive(input$go, {
-      glue::glue("Exports of { text_add_the() } { r_name() } from { text_add_the() } { p_name() } in { y() }, grouped by product community")
-    })
-    
+
     data_detailed <- eventReactive(input$go, {
       ots_create_tidy_data(
         years = y(),
@@ -86,8 +74,8 @@ shinyServer(
     exports_title <- eventReactive(input$go, {
       switch(
         table_detailed(),
-        "yrc" = glue::glue("Exports of { r_name() } to the rest of the world in { y() }"),
-        "yrpc" = glue::glue("Exports of { r_name() } to { p_name() } in { y() }")
+        "yrc" = glue::glue("Exportaciones de { r_name() } al resto del mundo en { y() }, agrupado por comunidad de producto"),
+        "yrpc" = glue::glue("Exportaciones de { r_name() } a { p_name() } en { y() }, agrupado por comunidad de producto")
       )
     })
     
